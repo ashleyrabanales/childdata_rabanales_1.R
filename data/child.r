@@ -6,78 +6,173 @@ library(dbplyr)
 library(sf)
 library(statar)
 library(lubridate)
-
 library(tidyverse)
-library(sf) #sf and stars packages operate on simple feature obj. 
-library(USAboundaries)
-library(leaflet)
 
-install.packages("remotes")
-remotes::install_github("ropensci/USAboundaries")
-remotes::install_github("ropensci/USAboundariesData")
-install.packages("USAboundaries")
-install.packages("USAboundariesData", repos = "http://packages.ropensci.org", type = "source")
-install.packages("leaflet")
 
-child <- read.csv ("/Users/ashleyrabanales/Desktop/STAT 4210 - Regression/Data Sets/FC2019v1.csv") 
+child_data <- read.csv ("/Users/ashleyrabanales/Desktop/STAT 4210 - Regression/Data Sets/FC2019v1.csv") 
 print(child)#checking if imported correctly
 
+child <- child_data %>%
 
 # Generate wait time variable
-child$wait_time <- as.Date(as.character(child$cursetdt), format="%Y-%m-%d") - 
-  as.Date(as.character(child$latremdt), format="%Y-%m-%d")
-child$wait_time <- as.numeric(child$wait_time)
+  child_data$wait_time <- as.Date(as.character(child_data$cursetdt), format="%Y-%m-%d") - 
+  as.Date(as.character(child_data$latremdt), format="%Y-%m-%d")
+child_data$wait_time <- as.numeric(child_data$wait_time)
 
-# Eliminate children with missing race
-child = child[!(child$race=="Race missing or unknown"),]
 
-# creating the level factor variable / setting white as primary
-child$race <- relevel(factor(child$race), "White")
+###REGRESSION
 
 #set child age as a numeric variable
-child$ageatstart <-as.numeric(child$ageatstart)
+child_data$ageatstart <- as.numeric(child_data$ageatstart)
+# Some children are scheduled for foster care even before they are born.
+# In this case, wait time will be negative value, so we need to clean it
+child_data = child_data[!child_data$wait_time <0,]
+# Some children run away. In this case, wait time will be 0. 
+# We need to drop those cases.
+tab(child_data, curplset) # There are 9963 children who are missing or ran away
+child_data = child_data[!child_data$curplset=="Missing",]
+child_data = child_data[!child_data$curplset=="Runaway",]
 
-#setting neglect/race for yes & factor
-child_data$neglect <- relevel(factor(child_data$neglect), "Yes")
+# Drop incomplete values in race 
+child_data = child_data[!child_data$race=="",]
 
-na.omit(child2$neglect)
+# Drop incomplete values in sex
+child_data = child_data[!child_data$sex=="",]
+#na.omit? 
+child_data = child_data[!child_data$sexabuse=="",]
+child_data = child_data[complete.cases(child_data$sexabuse),]
 
+# Set reference categories
+child_data$race <- relevel(factor(child_data$race),"White")
+child_data$sex <- relevel(factor(child_data$sex),"Male")
 
-
-
-
-
-child2 <- child %>%
-  str_sub(child$rem1dt, 1,4) 
-
-  str_sub(child$rem1dt, 1,4) = '2019'
-
-substr(df$"year col name", 1,5) = '2019'
-
-child2$rem1dt <- substr(rem1dt$"year col name", 1,5) = '2019'
-
-
-#Regression for wait time by each race 
-options(scipen=99)
-regression_model <- lm(wait_time ~ ageatstart + race, data=child) 
+# Run regression model
+regression_model <- lm(wait_time ~ race + sex +sexabuse + ageatstart , data=child_data)
 print(summary(regression_model))
 
-regressions_results = lm(wait_time ~ race, data = child)
-residuals = resid(regressions_results)
 
-plot(fitted(regressions_results), residuals,
-     ylab = "Residuals", xlab="Predicted Wait Time", 
-     main ="Figure 1: Regression Line of Wait Time by Neglect and Race")
-abline(0,0)
+###################BARPLOT
+# Drop incomplete values in race 
+child_2 = child_2[!child_2$race=="",]
+child_2 = child_2[complete.cases(child_2$race),]
+# Drop incomplete values in sex
+child_2 = child_2[!child_2$sex=="",]
+child_2 = child_2[complete.cases(child_2$sex),]
+#drop incolmplete values in neglect
+child_2 = child_2[!child_2$neglect=="",]
+child_2 = child_2[complete.cases(child_2$neglect),]
 
-tab(child, rem1dt) #(1st day removal) + age
+child_2 = child_2[!child_2$sexabuse=="",]
+child_2 = child_2[complete.cases(child_2$sexabuse),]
 
-library(tidyverse)
+child_2 <-
+  child %>%
+  group_by(race, sex, wait_time, ageatstart, neglect, sexabuse)%>%
+  summarize(rem1dt = length(2019))
+str_sub(child_2$rem1dt, 1,4) = '2019'
+
+child_data = child_data[!child_data$sexabuse=="",]
+child_data = child_data[complete.cases(child_data$sexabuse),]
+
+ggplot(data = child_2) +
+  geom_bar(mapping = aes(x = race, fill = sexabuse)) +
+    scale_fill_manual("legend", values = c("Yes" = "violet", "No" = "steelblue1")) +
+  labs(x = "Race",
+       y = "Wait Time", 
+       title = "Figure 1: Adoption Rates in Days ", color = "Race",
+       subtitle = "Wait Time By Race and Sex, 2019",) +
+  theme(strip.text.y = element_text(
+    size = 15, face = "times.new.roman"
+  )) +
+theme_bw() + theme(axis.text.x = element_text(angle = 45, hjust=1)) +
+  theme(plot.title = element_text(face="bold", size=18
+  )) +  theme(plot.subtitle = element_text(face="bold", size=18))
+
+ggsave(filename = "figure1_wait_time_race_sex.png", width = 6, height = 4)
+
+
+##############
+#summary of stats
+child_2 = child_2[!child_2$wait_time <0,]
+
+ggplot(data = child_2) +
+  stat_summary(
+    mapping = aes(x = race, y = wait_time),
+    fun.min = min,
+    fun.max = max,
+    fun = median,
+    cex=0.5
+  ) + theme(axis.text.x = element_text(angle = 45, hjust=1)) +
+  labs(x = "Race",
+  y = "Wait Time",
+title = "Figure 2: Statistics Summary of",
+subtitle = "Wait Time By Race, 2019",
+xlab= "Variable Lable", ylab="density",) +
+  theme(plot.title = element_text(face="bold", size=18,
+                  )) +
+  theme(plot.subtitle = element_text(face="bold", size=18,
+  ))
+
+ggsave(filename = "figure2_statsum.png", width = 6, height = 4)
+
+
+######BOXPLOT
+###################BARPLOT
+# Drop incomplete values in race 
+child_2 = child_2[!child_2$race=="",]
+child_2 = child_2[complete.cases(child_2$race),]
+# Drop incomplete values in sex
+child_2 = child_2[!child_2$sex=="",]
+child_2 = child_2[complete.cases(child_2$sex),]
+
+ggplot(data = child_2, mapping = aes(x = race, y = wait_time)) + 
+  geom_boxplot() +
+  coord_flip() + 
+  labs(x = "Race",
+       y = "Wait Time",
+       legend = "Sex",
+       title = "Figure 3: Boxplot of",
+       subtitle = "Wait Time By Race, 2019") +
+  theme(plot.title = element_text(face="bold", size=18,
+  )) +
+  theme(plot.subtitle = element_text(face="bold", size=18,
+  ))
+
+ggsave(filename = "figure3_boxplot.png", width = 6, height = 4)
+
+
+#####MOSAIC PLOT################
+install.packages("ggmosaic")
+library(ggmosaic)
+library(ggplot2)
+
+tab(child, neglect)
+tab(child, phyabuse)
+tab(child, sexabuse)
+
+
+child_2$Waited_Over_Year <- ifelse(child_2$wait_time > 365, c("yes"), c("no"))
+
+mosaic_examp <- ggplot(data = child_2) +
+  geom_mosaic(aes(x = product(sexabuse, Waited_Over_Year), fill = sexabuse)) +   
+    labs (y="Race", x="Sexual Abuse", title = "Figure 4: Mosaic Plot of",
+          subtitle = "Race and Sexual Abuse") +  
+theme(plot.title = element_text(face="bold", size=18,)) + 
+  theme(plot.subtitle = element_text(face="bold", size=18,))
+mosaic_examp 
+
+ggsave(filename = "figure4_mosaic.png", width = 6, height = 4)
+
+
+
+
+
+
 
 ## Read in Grad School Admit Data ##
 
 
-gs <- readr::read_csv("binary.csv")
+#gs <- readr::read_csv("binary.csv")
 
 ## Integrity Check ##
 
