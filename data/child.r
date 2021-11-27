@@ -1,18 +1,44 @@
-library(tidyverse)
-install.packages("jsonlite")
-library(jsonlite)
-library(ggplot2)
-library(dbplyr)
-library(sf)
-library(statar)
-library(lubridate)
-library(tidyverse)
 
+
+#Q1. how many children were remove in the year of 2019 by state?
+#Q2. were children removed because of socioeconomics or abused?
+#Q3. is there a difference between races and wait time in adoption?
 
 child_data <- read.csv ("/Users/ashleyrabanales/Desktop/STAT 4210 - Regression/Data Sets/FC2019v1.csv") 
-print(child)#checking if imported correctly
+head(child_data)#checking if imported correctly
 
+#creating a new vari for race/enthnicity 
 child <- child_data %>%
+  mutate (race_ethnicity = 
+            case_when(amiakn == 'Yes' ~ 'American Indian or Alaska Native',
+              asian == 'Yes' ~ 'Asian',
+              blkafram == 'Yes' ~ 'Black/African American',
+              hawaiipi == 'Yes' ~ 'Hawaiian or Other Pacific Islander',
+              white == 'Yes'~ 'White',
+              hisorgin == 'Yes' ~ 'Hispanic')) %>%
+
+#creating a new vari for all abusements
+child <- child_data %>%
+  mutate (removal_abuse = 
+            case_when (phyabuse == '1' ~ 'Physical',
+              sexabuse == '1' ~ 'Sexual', 
+              neglect == '1' ~ 'Neglect',
+              aaparent == '1' ~ 'Alcohol Abuse',
+              daparent == '1' ~ 'DA Parent',
+              aachild == '1' ~ 'AA Child',
+              dachild == '1'~ 'DA Child')) %>%
+              na.omit(removal_abuse) %>%
+
+
+print(child$race_enthnicity) # check if it came out correctly 
+print(child$removal_abuse) #
+
+
+child_2 <- child %>%
+  group_by(race, sex, wait_time, ageatstart, st, totalrem,  ) %>%
+  summarize(rem1dt = length(2019))
+str_sub(child_2$rem1dt, 1,4) = '2019'
+
 
 # Generate wait time variable
   child_data$wait_time <- as.Date(as.character(child_data$cursetdt), format="%Y-%m-%d") - 
@@ -20,6 +46,9 @@ child <- child_data %>%
 child_data$wait_time <- as.numeric(child_data$wait_time)
 
 
+#lets filter the variabales to focus on 
+child <- child_data %>%
+filter ()
 ###REGRESSION
 
 #set child age as a numeric variable
@@ -256,7 +285,7 @@ p <- lmod %>%
   ggtitle("Confidence Intervals for Logistic Regression Analysis") +
   theme(plot.title = element_text(hjust=0.5))
 
-p
+
 
 library(plotly)
 plotly::ggplotly(p)
