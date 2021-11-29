@@ -110,7 +110,7 @@ ggplot(data = child_2) +
   labs(x = "Placement Setting",
        y = "Wait Time", 
        title = "Figure 1: Current Placement Setting", fill = "Race/Ethnicity",
-       subtitle = "Wait Time By Race/Enthicity and Sex, 2019") +
+       subtitle = "Wait Time By Race/Enthicity, 2019") +
   theme(strip.text.y = element_text(
     size = 15, face = "times.new.roman"
   )) +
