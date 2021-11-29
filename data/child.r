@@ -118,7 +118,7 @@ theme_bw() + theme(axis.text.x = element_text(angle = 45, hjust=1)) +
   theme(plot.title = element_text(face="bold", size=14
   )) +  theme(plot.subtitle = element_text(face="bold", size=14))
 
-ggsave(filename = "figure1_curplset_race_sex.png", width = 6, height = 4)
+ggsave(filename = "figure1_curplset_race_sex.png", width = 8, height = 5)
 
 
 ##############
