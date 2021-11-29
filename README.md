@@ -1,14 +1,17 @@
 # Personal data projects
-__Project Purpose:__ I used data from the National Data Archive on Child Abuse and Neglect (NDACAN) 2019, which includes all children in foster care in 2019. The NDACAN data have been provided by the National Data Archive on Child Abuse and Neglect, which is housed at Cornell University and overseen by Children Bureau. The data have been de-identified prior to being made available to researchers in the publicly available version of the data, which are the data we used for all analyses. The NDACAN data contains case-level information on all children in foster care for whom State and Tribal title IV-E agencies have responsibility for placement, care or supervision, and on children who are adopted under the auspices of the State and Tribal title IV-E agency'. Title IV-E agencies are required to submit NDACAN data semi-annually to the Children Bureau. 
+- __Project Purpose:__ I used data from the National Data Archive on Child Abuse and Neglect (NDACAN) 2019, which includes all children in foster care in 2019. The NDACAN data have been provided by the National Data Archive on Child Abuse and Neglect, which is housed at Cornell University and overseen by Children Bureau. The data have been de-identified prior to being made available to researchers in the publicly available version of the data, which are the data we used for all analyses. The NDACAN data contains case-level information on all children in foster care for whom State and Tribal title IV-E agencies have responsibility for placement, care or supervision, and on children who are adopted under the auspices of the State and Tribal title IV-E agency'. Title IV-E agencies are required to submit NDACAN data semi-annually to the Children Bureau. 
 
 The goal of using this data is to find if there are association between the a few of the selected categories variables in anaylzing, performing, and creating visualization to explain differences, similaries, and discovering new informatiom for NDACAN.
 
 - __Tools used:__ I am using R in VS Code to create my grpahs and visualizations. 
 Sources I used to help to finished the project
 https://www.statology.org/conditional-mutating-r/
+https://www.datanovia.com/en/blog/ggplot-legend-title-position-and-labels/
 
 
 - __Results:__ This is your conclusion.  Explain why your work matters.  How could others use it?  What are your next steps? Show some key findings.
+
+     - In Figure 1, I build a stack bar chart of current placement setting with race and ethnicity of the children 
 
 
 
