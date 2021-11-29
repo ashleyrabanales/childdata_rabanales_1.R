@@ -179,14 +179,15 @@ library(ggplot2)
 #child$Waited_Over_Year <- ifelse(child$wait_time > 365, c("yes"), c("no"))
 
 mosaic_examp <- ggplot(data = child_2) +
-  geom_mosaic(aes(x = product(sex, ageadopt), fill =neglect)) +   
-    labs (y="Race", x="Sexual Abuse", title = "Figure 4: Mosaic Plot of",
-          subtitle = "Race and Sexual Abuse") +  
-theme(plot.title = element_text(face="bold", size=18,)) + 
-  theme(plot.subtitle = element_text(face="bold", size=18,))
+  geom_mosaic(aes(x = product(removal_abuse), fill =curplset)) +   
+    labs (y="Placement", x="Abusement", fill = "Current Placement", title = "Figure 3: Mosaic Plot of",
+          subtitle = "Placement Setting and Type of Abuse, 2019") +  
+theme(plot.title = element_text(face="bold", size=14,)) + 
+  theme(plot.subtitle = element_text(face="bold", size=14,)) + 
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) 
 mosaic_examp 
 
-ggsave(filename = "figure4_mosaic.png", width = 6, height = 4)
+ggsave(filename = "figure4_mosaic.png", width = 8, height = 4)
 
 
 
