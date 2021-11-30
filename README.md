@@ -1,12 +1,17 @@
 # Personal data projects
+
 - __Project Purpose:__ I used data from the National Data Archive on Child Abuse and Neglect (NDACAN) 2019, which includes all children in foster care in 2019. The NDACAN data have been provided by the National Data Archive on Child Abuse and Neglect, which is housed at Cornell University and overseen by Children Bureau. The data have been de-identified prior to being made available to researchers in the publicly available version of the data, which are the data we used for all analyses. The NDACAN data contains case-level information on all children in foster care for whom State and Tribal title IV-E agencies have responsibility for placement, care or supervision, and on children who are adopted under the auspices of the State and Tribal title IV-E agency'. Title IV-E agencies are required to submit NDACAN data semi-annually to the Children Bureau. 
 
-- The goal of using this data is to find if there are association between the a few of the selected categories variables in anaylzing, performing, and creating visualization to explain differences, similaries, and discovering new informatiom for NDACAN.
+- __The Goal__: of using this data is to find if there are association between the a few of the selected categories variables in anaylzing, performing, and creating visualization to explain differences, similaries, and discovering new informatiom for NDACAN.
 
 - __Tools used:__ I am using R in VS Code to create my grpahs and visualizations. 
 Sources I used to help to finished the project
 https://www.statology.org/conditional-mutating-r/
-https://www.datanovia.com/en/blog/ggplot-legend-title-position-and-labels/
+
+    https://www.datanovia.com/en/blog/ggplot-legend-title-position-and-labels/
+
+    https://ncss-wpengine.netdna-ssl.com/wp-content/themes/ncss/pdf/Procedures/NCSS/Mosaic_Plots.pdf
+
 
 
 - __Results:__ This is your conclusion.  Explain why your work matters.  How could others use it?  What are your next steps? Show some key findings.
@@ -61,7 +66,7 @@ https://www.datanovia.com/en/blog/ggplot-legend-title-position-and-labels/
 
 ![](documents/figure4_mosaic.png)
 
-- Shown in Figure 3, I created a mosaic plot which is made for categorical variables
+- Shown in Figure 3, I created a mosaic plot which is made for categorical variables of Removal of Abuse and Placement Setting. As we can see it is obvious Neglect and Physical Abuse are the largest proportional width in the current placements and the smalles to be AA Child and DA Child. Foster home relative and non-relative are more likely to be a current placement for the type of abuse the children is removed for. The least likely are institutional and supervised indepedent living children who experience a type of abuse to be send off to in the foster care setting.
 
 
 
