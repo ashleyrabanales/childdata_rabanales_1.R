@@ -10,10 +10,46 @@ https://www.datanovia.com/en/blog/ggplot-legend-title-position-and-labels/
 
 
 - __Results:__ This is your conclusion.  Explain why your work matters.  How could others use it?  What are your next steps? Show some key findings.
+    
+    ![](documents/figure1_curplset_race_sex.png)
 
-     - In Figure 1, I build a stack bar chart of current placement setting with race and ethnicity of the children 
+- In Figure 1, I build a stack bar chart of the current placement setting with race and ethnicity of the children from 2019. By creating a waiting time variable to determine the wait time per days. As we can see, mostly white and black
+     
+- The variable current placement setting is categorize by: Pre-adoptive home: A home in which the family intends to adopt the child. The family may or may not be receiving a foster care payment or an adoption subsidy on behalf of the child. 
+     
+     __Foster family home, relative__: A licensed or unlicensed home of the child's relatives regarded by the State as a foster care living arrangement for the child, even if there is no payment.
+     Foster family home, non-relative: A licensed foster family home regarded by the State as a foster care living arrangement. 
+     
+     __Group home__: A licensed or approved home providing 24-hour care for children in a small group setting that generally has from seven to twelve children.
+     
+     __Institution__: A child care facility operated by a public or private agency and providing 24-hour care and/or treatment for children who require separation from their own homes and group living experience. These facilities may include: child care institutions; residential treatment facilities; maternity homes; etc. An institution is larger than a group home, caring for more than 12 children.
+     
+    __Supervised independent living__: An alternative traditional living arrangement where the child is under the supervision of the agency but without 24-hour adult supervision, is receiving financial support from the child welfare agency, and is in a setting which provides the opportunity for increased responsibility for self-care. 
+      
+    __Runaway__: The child has run away from the foster care setting. Trial home visit: The child has been in a foster care placement but, under State agency supervision, has been returned to the principal caretaker for a limited and specified period of time. 
 
 
+
+![](documents/figure3_type_of_abusement.png)
+
+-  In figure 2, its a side by side bar chart of the types of abusement removal by sex. As we can see, males are most likely to have of abusementfrom AA CHild to Physical Abuse but in Sexual Abuse females 
+
+- Each variables of Abusement is explain as a condition associated with a child's removal from home and contact with the foster care system -  
+    __AAChild__: Alcohol Abuse, he child's compulsive use of or need for alcohol. This element should include infants addicted at birth. include children exposed in utero to alcohol.
+
+    __AA Parent__: Alcohol Abuse, the principal caretaker's compulsive use of alcohol that is not of a temporary nature.
+
+    __DA Child__: Drug Abuse, the child's use of drugs that is not of a temporary nature. Includes infants exposed to drugs during pregnancy. Not limited to narcotics
+
+    __DA Parent__: Drug Abuse, he principal caretaker's compulsive use of drugs that is not of a temporary nature.
+
+    __Neglect__: lleged or substantiated negligent treatment or maltreatment, including failure to provide adequate food, clothing, shelter or care. Such as domestic violence and mental?emotional abuse is mapped in the varaiable
+
+    __Physical Abuse__: alleged or substantiated physical abuse, injury or maltreatment of the child by a person responsible for the child's welfare.
+
+    __Sexual Abuse__: alleged or substantiated sexual abuse or exploitation of a child by a person who is responsible for the child's welfare.
+
+![](documents/figure4_mosaic.png)
 
 
 
