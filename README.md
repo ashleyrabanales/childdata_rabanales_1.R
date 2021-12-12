@@ -79,46 +79,13 @@ https://www.statology.org/conditional-mutating-r/
 ```
 - readme.md
 - scripts
----- readme.md (short description of each script)
----- data_munge.R
----- data_munge.py
----- eda.R
----- model.py
-- data (less than 100 Mb)
----- readme.md (links to data larger than 100 Mb and data details.)
----- crimes.csv
----- visits.json
+---- readme.md 
+---- child.r
+- data 
+---- childdata.csv (privacy)
 - documents
----- readme.md (notes while doing your project)
----- mlmethod.pdf
----- api_guide.pdf
+---- figure1_curplset_race_sex.png
+---- figure3_type_of_abusement.png
+---- figure4_mosaic.png
+---- regression.png
 ```
-
-## Writing about data science
-
-[Thusan's article on how writing about data science is not easy](https://towardsdatascience.com/lets-admit-it-writing-about-data-science-is-not-easy-37a376777d36) could be helpful as you document your project and skills.
-
-## Data sources
-
-You don't need to make these projects complicated. These projects are built to show your work using the skills you have developed during the course. I would make sure that these are presentable in your Github space. You want to demonstrate your creativity. You could use the following links to find a new data set. 
-
-- [FiveThirtyEight](https://github.com/fivethirtyeight/data)
-- [TidyTuesday](https://github.com/rfordatascience/tidytuesday)
-- [WorkoutWednesday](http://www.workout-wednesday.com/)
-- [Kaggle](https://www.kaggle.com/datasets)
-- [data.world](https://data.world/search?context=community&entryTypeLabel=dataset&q=free+data&type=all)
-
-## Github pages
-
-It would help if you took the time to publish your repo for easier viewing of the files.  Please follow the directions at [Github pages](https://pages.github.com/) to build your pages footprint on the internet.
-
-## Questions
-
-### Is the expectation of our personal projects similar to that of the class projects we are completing?
-
-Yes & No. Here are a few points to highlight the comparison
-
-1. Three different data sets is the main criteria. Hopefully different challenges to your skills and the data can be in the same area for all three if you desire.
-2. You can choose the language. Please choose based on where you want employment.
-3. We don't get much into the story telling with our class projects.  But, I would hope you tell a story that includes some graphs and analysis.
-4. Think of these as sales pitches for future employment. Your personal projects should be in your own Github space.

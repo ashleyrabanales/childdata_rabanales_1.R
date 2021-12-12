@@ -91,7 +91,7 @@ child = child[!child$neglect=="",]
 child = child[!child$sex=="",]
 
 # Run regression model
-regression_model <- lm(wait_time ~ race_ethnicity + sex, data=child)
+regression_model <- lm(wait_time ~ race_ethnicity + sex + removal_abuse, data=child)
 print(summary(regression_model))
 
 
