@@ -194,7 +194,7 @@ ggsave(filename = "figure4_mosaic.png", width = 8, height = 4)
 
 
 
-
+##wanted to perform a lingustic regression
 ## Read in Grad School Admit Data ##
 
 
