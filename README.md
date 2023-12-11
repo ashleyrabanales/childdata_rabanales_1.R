@@ -15,11 +15,27 @@ https://www.statology.org/conditional-mutating-r/
 
 ![](documents/regression.png)
 
-- __Results:__  the results show, there is a lot of similarities between the type of abuse and current placement setting and sex.  Most children tend to wait longer in a foster family home of non-relative and relative and pre-adoptive homes. Females are more likely to be sexually abused than males and neglect have the highest in both sexes. Showing new findings for the NDACAN that mostly white and Black/African American makes most of the parameter of children and the least to be Asian and American Indian or Alaskan Native in the foster care system. This has significance to be able to seek where the children who were suffered from a type of abuse and where they were placed can demonstrate differences and similarities of the foster care system. Showing others to take further evaluations of the new variables and code to extend and extract more information. If there is an association between other variables and new variables I created to show a better representation of race/ethnicity and type of abuse. To build a statistical finding such as a regression to see if it is significant with an alpha of 0.05. Which there is significant in the following variables of all race_enthincity, sex, and Neglect, Physical Abuse, and Sexual Abuse witha p-value less than the alpha with a weak positive r-squares. Due to multicollinearity, there isn't enough information to concluded this. To further in creating new variables or removing variables to show a better representation of a correlation.
+- __Results:__
+  
+The results indicate substantial similarities between the type of abuse, current placement settings, and gender. Most children experience longer waiting times in foster family homes, whether non-relative, relative, or pre-adoptive. Females face a higher likelihood of sexual abuse compared to males, while neglect rates are the highest in both genders.
+
+The latest findings from NDACAN reveal that the majority of children in the foster care system are of white or Black/African American ethnicity, with fewer being Asian or American Indian/Alaskan Native. This demographic variation is significant in understanding where children subjected to abuse end up and how it reflects the foster care system's dynamics.
+
+These findings underscore the need for further exploration, urging others to conduct additional evaluations of the newly introduced variables and codes. Investigating potential associations between these variables and race/ethnicity can offer a more nuanced understanding of the complex interplay between demographic factors and types of abuse.
+
+Statistical analyses, such as regression, were employed to assess significance, using an alpha of 0.05. The results indicate significance in variables encompassing race/ethnicity, sex, neglect, physical abuse, and sexual abuse, as evidenced by p-values below the alpha threshold and weak positive r-squares. However, caution is advised due to multicollinearity issues, as there is insufficient information to draw conclusive results.
+
+To address this, further steps may involve creating new variables or removing existing ones to enhance the correlation representation. The aim is to refine the analysis and gain a clearer understanding of the intricate relationships within the data.
     
     ![](documents/figure1_curplset_race_sex.png)
 
-- In Figure 1, I build a stacked bar chart of the current placement setting with the race and ethnicity of the children from 2019, by creating a waiting time variable to determine the wait time per day. As we can see, majority of white and black/African children have the highest count for each placement setting, which means they are more children in those races in the foster care setting. Missing and Runaway children are more likely to be Black/African American and White, including a few Hispanics and American Indian or Alaskan Native. Group homes could or maybe for disabled or mental disorder children who need 24-hour care, which can be seen to be the case. Trail home visits, foster home non-relative, and relative are more likely to have a longer wait time. 
+- In Figure 1,
+
+I constructed a stacked bar chart illustrating the current placement setting in relation to the race and ethnicity of children from 2019. This involved introducing a waiting time variable to calculate the wait time per day. The chart reveals that a majority of white and Black/African American children have the highest counts in each placement setting, indicating a larger representation of children from these races in the foster care system.
+
+Missing and runaway children are more frequently identified as Black/African American and White, with a smaller proportion being Hispanic or American Indian/Alaskan Native. Group homes may be designated for children with disabilities or mental disorders requiring 24-hour care, and this pattern is evident in the data.
+
+Notably, trail home visits, foster homes (both non-relative and relative), exhibit a tendency for longer wait times, emphasizing the challenges faced by children placed in these settings.
      
 - The variable current placement setting is cateegorize by: 
 
@@ -48,7 +64,12 @@ https://www.statology.org/conditional-mutating-r/
 
 ![](documents/figure3_type_of_abusement.png)
 
--  As in Figure 2, it's a side-by-side bar chart of the types of abuse removal by sex. As we can see, males are most likely to have a type of abuse from AA CHild to Physical Abuse but in Sexual Abuse females have a higher count, meaning females are doubled to be sexually abused than males. About 90,000 females and 98,000 males were likely to experience and removed by negligent treatment or maltreatment, including domestic violence and mental and emotional abuse. DA Parents' removal is higher than Alcohol Abuse, showing that AA Parent triples in removal than AA Parent. Physical Abuse is the second leading cause of removal from both sexes. 
+-  As in Figure 2,
+
+it presents a side-by-side bar chart illustrating the types of abuse leading to removal categorized by sex. The data indicates that males are more prone to experiencing various forms of abuse, ranging from AA Child to Physical Abuse. However, in the case of Sexual Abuse, females exhibit a higher count, signifying that females are twice as likely to be victims of sexual abuse compared to males.
+
+Approximately 90,000 females and 98,000 males were identified as likely to undergo removal due to negligent treatment or maltreatment, encompassing issues like domestic violence, mental, and emotional abuse. The removal rate for DA Parents surpasses that of Alcohol Abuse, demonstrating that instances involving DA Parents result in triple the number of removals compared to those involving Alcohol Abuse. Physical Abuse emerges as the second leading cause of removal for both genders.
+
 
 - Each variables of Abusement is explain as a condition associated with a child's removal from home and contact with the foster care system -  
     __AAChild__: Alcohol Abuse, he child's compulsive use of or need for alcohol. This element should include infants addicted at birth. include children exposed in utero to alcohol.
@@ -67,7 +88,8 @@ https://www.statology.org/conditional-mutating-r/
 
 ![](documents/figure4_mosaic.png)
 
-- As shown in Figure 3, I created a mosaic plot which is made for categorical variables of Removal of Abuse and Placement Setting. As we can see it is obvious Neglect and Physical Abuse are the largest proportional width in the current placements and the smallest to be AA Child and DA Child. Foster home relative and non-relative are more likely to be a current placement for the type of abuse the children are removed for. The least likely is institutional and supervised independent living children who experience a type of abuse to be sent off to in the foster care setting.
+
+- Illustrated in Figure 3 is a mosaic plot designed for categorical variables, specifically depicting the relationship between the Removal of Abuse and Placement Setting. It's evident from the plot that Neglect and Physical Abuse have the broadest proportional width in current placements, while AA Child and DA Child exhibit the narrowest widths. Foster homes, both relative and non-relative, emerge as the more common current placement for children removed due to abuse. In contrast, institutional and supervised independent living settings are the least likely destinations for children experiencing abuse and subsequently being placed in the foster care system.
 
 
 
