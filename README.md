@@ -12,7 +12,7 @@ https://www.statology.org/conditional-mutating-r/
 
     https://ncss-wpengine.netdna-ssl.com/wp-content/themes/ncss/pdf/Procedures/NCSS/Mosaic_Plots.pdf
 
-
+  
 ![](documents/regression.png)
 
 - __Results:__
@@ -27,7 +27,7 @@ Statistical analyses, such as regression, were employed to assess significance, 
 
 To address this, further steps may involve creating new variables or removing existing ones to enhance the correlation representation. The aim is to refine the analysis and gain a clearer understanding of the intricate relationships within the data.
     
-    ![](documents/figure1_curplset_race_sex.png)
+![](documents/figure1_curplset_race_sex.png)
 
 - In Figure 1,
 
